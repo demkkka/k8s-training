@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: main-ingress
+  labels:
+    name: main-ingress
+spec:
+  rules:
+  - host: demkkka.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/app1"
+        backend:
+          service:
+            name: app1-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/app2"
+        backend:
+          service:
+            name: app2-service
+            port: 
+              number: 80
